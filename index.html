@@ -164,13 +164,31 @@
 
   <!-- 📬 Confirmare participare Form -->
   <section class="rsvp">
-    <h2>Confirmare participare</h2>
+    <h2 style="font-size: 2rem;">Confirmare participare</h2>
     <form action="https://formspree.io/f/mblgbjkb" method="POST">
       <input type="text" name="name" placeholder="Numele tău" required />
-      <input type="text" name="name" placeholder="Numar persoane" required />
-      <input type="email" name="email" placeholder="Email-ul tău" required />
+      <input type="text" name="persoane" placeholder="Număr persoane" required />
+      <label for="meal">Preferință meniu:</label>
+      <select name="meal" id="meal" required style="width: 100%; padding: 10px; font-size: 1rem; border-radius: 6px;">
+        <option value="normal">Normal</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="vegan">Vegan</option>
+      </select>
+      <label style="font-size: 1.2rem; display: block; margin: 10px 0;text-align: left;">
+        Bifează dacă aveți nevoie de transport:
+        <input type="checkbox" name="transport" value="da" />
+      </label>
+      <label style="font-size: 1.2rem; display: block; margin: 10px 0;text-align: left;">
+        Bifează dacă vei veni cu copiii:
+        <input type="checkbox" name="children" value="da" />
+      </label>
+      <label for="prezenta">Confirmă prezența:</label>
+      <select name="prezenta" id="meal" required style="width: 100%; padding: 10px; font-size: 1rem; border-radius: 6px;">
+        <option value="da">Da, confirm prezența</option>
+        <option value="nu">Nu pot să particip</option>
+      </select>
       <textarea name="message" placeholder="Mesaj aditional" rows="4"></textarea>
-      <button type="submit">Trimite raspuns</button>
+      <button type="submit">Trimite răspuns</button>
     </form>
   </section>
 
