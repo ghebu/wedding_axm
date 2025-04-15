@@ -143,16 +143,36 @@
 <body>
 
   <!-- 🎶 Background Music -->
-  <audio id="bg-music" loop>
-    <source src="wedding-music.mp3" type="audio/mpeg">
-  </audio>
+<!-- Background Music -->
+<audio id="bg-music">
+  <source src="wedding-music.mp3" type="audio/mpeg">
+  Browserul tău nu suportă redarea audio.
+</audio>
 
-  <script>
-    // Wait for first user interaction
-    window.addEventListener('click', () => {
-      document.getElementById('bg-music').play();
-    }, { once: true });
-  </script>
+<!-- Stop Music Button (initially hidden) -->
+<button id="stop-music-btn" style="display: none; margin-top: 1rem;">
+  🔇 Oprește muzica
+</button>
+
+<script>
+  const audio = document.getElementById("bg-music");
+  const stopBtn = document.getElementById("stop-music-btn");
+
+  // Start music after first user interaction
+  window.addEventListener("click", () => {
+    audio.play().then(() => {
+      stopBtn.style.display = "inline-block";
+    }).catch((err) => {
+      console.log("Autoplay blocked:", err);
+    });
+  }, { once: true });
+
+  // Stop music when button clicked
+  stopBtn.addEventListener("click", () => {
+    audio.pause();
+    stopBtn.style.display = "none";
+  });
+</script>
 
   <!-- 💌 Invitation -->
   <header class="invitation">
