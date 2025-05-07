@@ -1,0 +1,46 @@
+<section class="rsvp">
+  <h2>Confirmare participare</h2>
+  <form action="https://formspree.io/f/mblgbjkb" method="POST" id="rsvp-form">
+    <input type="text" name="name" placeholder="Numele tău" required />
+    <input type="text" name="persoane" placeholder="Număr persoane" required />
+    <label for="meal">Preferință meniu:</label>
+    <select name="meal" id="meal" required>
+      <option value="normal">Normal</option>
+      <option value="vegetarian">Vegetarian</option>
+      <option value="vegan">Vegan</option>
+    </select>
+    <label style="text-align:left;">
+      Bifează dacă aveți nevoie de transport:
+      <input type="checkbox" name="transport" value="da" />
+    </label>
+    <label style="text-align:left;">
+      Bifează dacă vei veni cu copiii:
+      <input type="checkbox" name="children" value="da" />
+    </label>
+    <label for="prezenta">Confirmă prezența:</label>
+    <select name="prezenta" id="prezenta" required>
+      <option value="da">Da, confirm prezența</option>
+      <option value="nu">Nu pot să particip</option>
+    </select>
+    <textarea name="message" placeholder="Mesaj adițional" rows="4"></textarea>
+    <button type="submit">Trimite răspuns</button>
+  </form>
+
+  <!-- ✅ Thank You Message -->
+  <div id="thank-you" style="display:none; margin-top: 1rem; font-size: 1.2rem;">
+    Mulțumim pentru confirmare! 💌 Ne vedem la nuntă!
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById("rsvp-form");
+  const thankYou = document.getElementById("thank-you");
+
+  form.addEventListener("submit", function (e) {
+    setTimeout(() => {
+      form.style.display = "none";
+      thankYou.style.display = "block";
+    }, 500);
+  });
+</script>
+
